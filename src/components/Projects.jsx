@@ -23,7 +23,7 @@ const containerVariant = {
 
 const BentoGrid = ({ children, className }) => (
   <motion.div 
-    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ${className}`}
+    className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${className}`}
     variants={containerVariant}
     initial="hidden"
     whileInView="visible"
@@ -33,60 +33,60 @@ const BentoGrid = ({ children, className }) => (
   </motion.div>
 )
 
-const BentoGridItem = ({ project, className }) => (
+const BentoGridItem = ({ project }) => (
   <motion.div 
     variants={projectVariant}
-    className={`group bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg ${className}`}
+    className="group relative bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg h-[250px] transition-all duration-300"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ amount: 0.3 }}
     transition={{ duration: 0.5, type: "spring", stiffness: 50 }}
   >
-    <div className='relative overflow-hidden'>
-      <img 
-        src={project.image} 
-        alt={project.name} 
-        className='w-full h-40 sm:h-48 object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105' 
-      />
-      <div className='absolute top-0 left-0 w-full h-full bg-black/30 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0'>
-        <h3 className='text-lg sm:text-xl font-bold text-white text-center px-4'>
-          {project.name}
-        </h3>
+    <div className='h-full w-full p-6 flex flex-col justify-center items-center transition-all duration-300'>
+      <h3 className='text-2xl font-bold text-white text-center mb-4 group-hover:scale-95 transition-transform duration-300'>
+        {project.name}
+      </h3>
+      
+      {/* Technologies */}
+      <div className='flex flex-wrap gap-2 justify-center mb-4'>
+        {project.technologies?.map((tech, index) => (
+          <span 
+            key={index}
+            className='bg-white/10 px-3 py-1 rounded-full text-xs text-blue-200'
+          >
+            {tech}
+          </span>
+        ))}
       </div>
-    </div>
-    <div className='p-4 sm:p-6'>
-      <p className='text-xs sm:text-sm text-stone-300 mb-3 sm:mb-4'>
-        {project.description}
-      </p>
-      {project.technologies && (
-        <div className='flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4'>
-          {project.technologies.map((tech, techIndex) => (
-            <span key={techIndex} className='bg-white/10 text-stone-300 px-2 py-1 rounded-full text-xs'>
-              {tech}
-            </span>
-          ))}
+
+      {/* Description Overlay */}
+      <div className='absolute inset-0 bg-gradient-to-br from-blue-900/95 to-purple-900/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+        <div className='p-6 text-center'>
+          <p className='text-gray-200 text-sm mb-4'>
+            {project.description}
+          </p>
+          {project.link && (
+            <a 
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className='inline-block bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full transition duration-300 text-sm font-medium'
+            >
+              View Project
+            </a>
+          )}
         </div>
-      )}
-      {project.link && (
-        <a 
-          href={project.link} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className='inline-block bg-white/10 hover:bg-white/20 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full transition duration-300 text-xs sm:text-sm font-medium'
-        >
-          View Project
-        </a>
-      )}
+      </div>
     </div>
   </motion.div>
 )
 
 const Projects = () => {
     return (
-        <section id='projects' className='py-8 sm:py-12 md:py-20 lg:py-24'>
-            <div className='container mx-auto px-4 sm:px-6 md:px-8'>
+        <section id='projects' className='py-20 lg:py-32'>
+            <div className='container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl'>
                 <motion.h2 
-                    className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-white'
+                    className='text-4xl lg:text-5xl font-bold text-center mb-16 lg:mb-24 text-white'
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ amount: 0.5 }}
@@ -99,7 +99,6 @@ const Projects = () => {
                         <BentoGridItem 
                             key={index} 
                             project={project}
-                            className={index === 3 || index === 6 ? "sm:col-span-2" : ""}
                         />
                     ))}
                 </BentoGrid>

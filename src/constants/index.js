@@ -1,9 +1,3 @@
-import projects1 from "../assets/projects1.webp";
-import projects2 from "../assets/projects2.webp";
-import projects3 from "../assets/projects3.webp";
-import projects4 from "../assets/projects4.webp";
-import projects5 from "../assets/projects5.webp";
-
 export const LINKS = [
   { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
@@ -27,45 +21,38 @@ export const PROJECTS = [
     name: "AudiHealth",
     description:
       "A voice pathology detection platform using AI to identify laryngitis and polyps, generating medical reports with actionable insights. Integrated with WhatsApp for real-time doctor search and health monitoring.",
-    image: projects1,
-    link: "#", // Add demo link if available
+    technologies: ["Python", "TensorFlow", "Flask", "WhatsApp API"],
+    link: "#",
   },
   {
     name: "AIQuest",
     description:
       "An AI-driven Q&A platform leveraging hybrid RAG and AI agents for accurate responses, with a moderator review system and analytics. Developed for organizational knowledge management.",
-    image: projects2,
+    technologies: ["LangChain", "React", "Node.js", "MongoDB"],
     link: "https://github.com/Jeevanchoudhary9/AIQuests",
   },
   {
     name: "Vilokana (Reunite)",
     description:
       "A missing person search platform integrating facial recognition, real-time tracking, and dynamic search area mapping. Facilitates police and NGO collaboration for faster recovery.",
-    image: projects3,
+    technologies: ["OpenCV", "Python", "Flask", "PostgreSQL"],
     link: "https://github.com/rushiijadhav23/Renuite-TSEC",
   },
   {
     name: "ArthML",
     description:
       "A machine learning platform for sales forecasting, hybrid recommendations, and strategic outlet placement using AI techniques. Implements Apriori and K-Means clustering for better insights.",
-    image: projects4,
-    link: "#", // Add demo link if available
+    technologies: ["Python", "Scikit-learn", "Flask", "React"],
+    link: "#",
   },
   {
     name: "Meows & Woofs",
     description:
       "A pet product marketplace with JWT authentication, secure browsing, purchasing, and product management. Features cloud-based image storage using Cloudinary.",
-    image: projects5,
-    link: "#", // Add link if available
+    technologies: ["React", "Node.js", "MongoDB", "Cloudinary"],
+    link: "#",
   },
 ];
-
-export const ABOUT_CONTENT = {
-  paragraphs: [
-    "I am a dedicated developer with experience in AI, full-stack web development, and system architecture. I focus on creating scalable and efficient solutions with a user-centric approach.",
-    "My expertise includes technologies like Flask, React.js, LangChain, and AI-driven architectures. I constantly strive to improve performance, security, and user experience in all my projects.",
-  ],
-};
 
 export const EXPERIENCES = [
   {

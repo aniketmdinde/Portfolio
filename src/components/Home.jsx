@@ -120,9 +120,13 @@ const Home = () => {
             sequence={[
               "Software Development",
               2000,
-              "Artificial Intelligence",
+              "Full Stack Development",
               2000,
-              "Cybersecurity",
+              "Backend Development",
+              2000,
+              "Frontend Development",
+              2000,
+              "Artificial Intelligence",
               2000,
             ]}
             wrapper="span"
