@@ -45,13 +45,6 @@ export const PROJECTS = [
     technologies: ["Python", "Scikit-learn", "Flask", "React"],
     link: "#",
   },
-  {
-    name: "Meows & Woofs",
-    description:
-      "A pet product marketplace with JWT authentication, secure browsing, purchasing, and product management. Features cloud-based image storage using Cloudinary.",
-    technologies: ["React", "Node.js", "MongoDB", "Cloudinary"],
-    link: "#",
-  },
 ];
 
 export const EXPERIENCES = [
